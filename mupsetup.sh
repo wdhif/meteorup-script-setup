@@ -15,6 +15,8 @@ echo $username:$password | chpasswd
 adduser $username sudo
 sed -i 's/# %sudo  ALL=(ALL) ALL/%sudo ALL=(ALL) NOPASSWD:ALL/' /etc/sudoers
 sed -i 's/%sudo  ALL=(ALL) ALL/%sudo ALL=(ALL) NOPASSWD:ALL/' /etc/sudoers
+sed -i 's/# %sudo   ALL=(ALL:ALL) ALL/%sudo ALL=(ALL:ALL) NOPASSWD:ALL/' /etc/sudoers
+sed -i 's/%sudo   ALL=(ALL:ALL) ALL/%sudo ALL=(ALL:ALL) NOPASSWD:ALL/' /etc/sudoers
 service sudo restart
 
 echo "Check the sudoers file with visudo for %sudo ALL=(ALL) NOPASSWD:ALL"
