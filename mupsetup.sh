@@ -14,7 +14,7 @@ fi
 useradd $username
 echo $username:$password | chpasswd
 adduser $username sudo
-echo "# meteorup-server-script\n%sudo ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+echo "# meteorup-server-script\n%sudo ALL=(ALL) NOPASSWD:ALL" >> $sudoers
 service sudo restart
 
 if grep -q "%sudo ALL=(ALL) NOPASSWD:ALL" $sudoers; then
@@ -22,4 +22,4 @@ if grep -q "%sudo ALL=(ALL) NOPASSWD:ALL" $sudoers; then
    exit
 fi
 
-echo "Check the sudoers file with visudo for %sudo ALL=(ALL) NOPASSWD:ALL"
+echo "The script could not modify the sudoers file check with visudo for %sudo ALL=(ALL) NOPASSWD:ALL"
