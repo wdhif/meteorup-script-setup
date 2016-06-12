@@ -3,7 +3,8 @@ Meteor up server setup made easy
 
 ## Installation
 
-1. Launch the script as **root**.
+1. Modify the `username` and `password` values.
+2. Launch the script as **root**.
 
 ## Troubleshooting
 
