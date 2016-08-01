@@ -1,0 +1,17 @@
+---
+- hosts: all
+  remote_user: root
+  vars_prompt:
+    - name: "username"
+      prompt: "Choose a username"
+      private: no
+    - name: "password"
+      prompt: "Choose a password"
+      private: yes
+    - name: "sudoers"
+      prompt: "Where is your sudoers file?"
+      default: "/etc/sudoers"
+  tasks:
+    - apt: name=python
+    - user: name={{username}} password={{password}}
+    - lineinfile: "dest=/etc/sudoers state=present regexp='^%sudo' line='%sudo ALL=(ALL) NOPASSWD:ALL'"
